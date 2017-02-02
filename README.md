@@ -1,6 +1,6 @@
 # Uplimiter plugin for Craft CMS 3.x
 
-Easily define the maximum file upload size per user group in Craft CMS
+Easily define the maximum file upload size per user group in Craft CMS.
 
 ![Screenshot](resources/img/plugin-logo.png)
 
