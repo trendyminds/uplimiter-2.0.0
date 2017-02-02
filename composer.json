@@ -1,0 +1,41 @@
+{
+    "name": "trendyminds/uplimiter",
+    "description": "Easily define the maximum file upload size per user group in Craft CMS",
+    "type": "craft-plugin",
+    "version": "1.2.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "plugin",
+        "uplimiter"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "TrendyMinds",
+            "homepage": "https://trendyminds.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+          "trendyminds\\uplimiter\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Uplimiter",
+        "handle": "uplimiter",
+        "version": "2.0.0",
+        "schemaVersion": "2.0.0",
+        "hasSettings": false,
+        "hasCpSection": false,
+        "developer": "TrendyMinds",
+        "developerUrl": "https://trendyminds.com",
+        "description": "Easily define the maximum file upload size per user group in Craft CMS",
+        "documentationUrl": "https://github.com/trendyminds/uplimiter/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/trendyminds/uplimiter/master/CHANGELOG.md",
+        "class": "trendyminds\\uplimiter\\Uplimiter"
+    }
+}
