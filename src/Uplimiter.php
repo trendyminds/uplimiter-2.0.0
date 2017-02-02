@@ -61,6 +61,55 @@ class Uplimiter extends Plugin
         parent::init();
         self::$plugin = $this;
 
+        if ( craft()->request->isCpRequest() && craft()->userSession->isLoggedIn() )
+        {
+            // Get the currently logged in user
+            $userId = craft()->userSession->id;
+
+            // Get the user groups the user belongs to
+            $userGroups = craft()->userGroups->getGroupsByUserId($userId);
+
+            echo '<pre>';
+            print_r($userGroups);
+            echo '</pre>';
+            die();
+
+            // If the user belongs to a group, prepare to check their upload limit
+            // if (!empty($userGroups))
+            // {
+            //     craft()->on('assets.onBeforeUploadAsset', function(Event $event) {
+            //         // Clear the file cache to get the correct file size of the attempted file
+            //         clearstatcache();
+
+            //         // Get the currently logged in user
+            //         $userId = craft()->userSession->id;
+
+            //         // Get the user groups the user belongs to
+            //         $userGroups = craft()->userGroups->getGroupsByUserId($userId);
+
+            //         // Create an array of the groups the user is in and the upload limits
+            //         $groups = array();
+
+            //         // Get the value for each user group in the plugin settings. If a user group does not have a value assigned to it, use the default maxUploadFileSize variable.
+            //         foreach($userGroups as $group) {
+            //             $groups[] = ($this->getSettings()['gid' . $group->id]) ? $this->getSettings()['gid' . $group->id] : craft()->config->get('maxUploadFileSize');
+            //         }
+
+            //         // Find the largest value of the groups this user belongs to
+            //         $maxGroupFileSize = max($groups);
+
+            //         // Get the size of the uploaded file
+            //         $getFileSize = filesize($event->params['path']);
+
+            //         // Determine if the user can upload a file of this size
+            //         if ($maxGroupFileSize < $getFileSize)
+            //         {
+            //             throw new Exception(Craft::t('The file you attempted to upload was too large. Please ensure your upload is smaller than ' . $maxGroupFileSize . ' bytes.'));
+            //         }
+            //     });
+            // }
+        }
+
 /**
  * Logging in Craft involves using one of the following methods:
  *
